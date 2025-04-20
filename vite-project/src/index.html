@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Cartes - Menu Principal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="fullscreen-background">
+      <div class="rotating-background"></div>
+  </div>
+
+    <div class="logo">
+        <h1>L'éveil des gardiens</h1>
+    </div>
+    
+    <div class="menu-container">
+        <button class="menu-button" id="play-button">JOUER</button>
+        <button class="menu-button" id="collection-button">COLLECTION</button>
+        <button class="menu-button" id="settings-button">PARAMÈTRES</button>
+    </div>
+    
+    <div class="footer">
+        <button class="footer-button" id="contact-button">FRIENDS</button>
+        <button class="footer-button" id="credits-button">CRÉDITS</button>
+    </div>
+    
+    <!-- Modals -->
+    <div class="modal" id="play-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">Mode de jeu</h2>
+            <div class="modal-body">
+                <button class="menu-button">Mode Classé</button>
+                <button class="menu-button">Mode Décontracté</button>
+                <button class="menu-button">Aventure</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="collection-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">Collection</h2>
+            <div class="modal-body">
+                <p>Votre collection de cartes s'affichera ici. Vous pourrez construire des decks et examiner vos cartes.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">Paramètres</h2>
+            <div class="modal-body">
+                <p>Options de jeu, audio, graphiques et langue.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">Contact</h2>
+            <div class="modal-body">
+                <p>Pour toute question ou suggestion, contactez-nous à :</p>
+                <p>contact@carteslegendes.com</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="credits-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">Crédits</h2>
+            <div class="modal-body">
+                <p>Développé par [Votre nom]</p>
+                <p>Design & Illustrations par [Artiste]</p>
+                <p>Musique par [Compositeur]</p>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
