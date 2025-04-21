@@ -1,0 +1,463 @@
+/* collection.css - Card Collection Interface Styles */
+
+/* Base styles for collection interface */
+.collection-container {
+    width: 100%;
+    max-width: none; /* Suppression d'une éventuelle largeur maximale */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #f8d16e;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow-y: auto;
+    z-index: 5;
+    margin: 0; /* Suppression des marges */
+}
+
+/* Si la collection est à l'intérieur d'un conteneur parent, assurez-vous qu'il prend aussi toute la largeur */
+body, html, .main-container, .app-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Ajustement des grilles pour utiliser plus d'espace horizontal */
+.deck-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Peut-être ajuster la taille des cartes pour qu'elles s'adaptent mieux à l'espace élargi */
+.card {
+    width: 100%;
+}
+
+.basic-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+
+/* Amélioration de la réactivité pour les grands écrans */
+@media (min-width: 1200px) {
+    .deck-list {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+/* Le reste du CSS reste inchangé */
+.hidden {
+    display: none !important;
+}
+
+/* Header styles */
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #a67c00;
+    width: 100%;
+}
+
+.collection-header h1 {
+    font-size: 42px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00, 0 2px 0 #000;
+    letter-spacing: 2px;
+}
+
+.navigation-button {
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #a67c00, #744800);
+    border: 2px solid #ffc451;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navigation-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(to bottom, #d49d00, #a67c00);
+}
+
+.navigation-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Deck selection styles */
+.deck-selection h2, 
+.deck-viewer h2, 
+.master-cards-container h3, 
+.master-card-details h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffc451;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.deck-item {
+    background: linear-gradient(145deg, #2d1d00, #1a1000);
+    border: 2px solid #a67c00;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.deck-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: #ffc451;
+    box-shadow: 0 8px 20px rgba(255, 196, 81, 0.4);
+}
+
+.deck-image {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.deck-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.deck-item:hover .deck-image img {
+    transform: scale(1.1);
+}
+
+.deck-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.deck-info h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #ffc451;
+}
+
+.deck-info p {
+    font-size: 16px;
+    color: #f8d16e;
+}
+
+/* Deck viewer styles */
+.deck-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.card {
+    background: linear-gradient(145deg, #3d2b00, #271a00);
+    border: 2px solid #a67c00;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: #ffc451;
+    box-shadow: 0 8px 20px rgba(255, 196, 81, 0.5);
+}
+
+.card-image {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 196, 81, 0) 60%, rgba(255, 196, 81, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-name {
+    padding: 12px;
+    text-align: center;
+    font-size: 18px;
+    color: #ffc451;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Master card details styles */
+
+
+.showcase-section {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.showcase-section h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ffc451;
+    text-align: center;
+}
+
+.showcase-card {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #3d2b00, #271a00);
+    border: 3px solid #d49d00;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.showcase-card-inner {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.showcase-card-inner.card-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.showcase-card-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-shine {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 45%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.1) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: shineSweep 5s infinite ease-in-out;
+    transform: rotate(45deg);
+}
+
+@keyframes shineSweep {
+    0% { 
+        top: -100%;
+        left: -100%;
+    }
+    100% { 
+        top: 100%;
+        left: 100%;
+    }
+}
+
+.basic-card {
+    background: linear-gradient(145deg, #3d2b00, #271a00);
+    border: 2px solid #a67c00;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+}
+/* Nouveau conteneur pour aligner les cartes master et lieux */
+.featured-cards-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Ajustements pour les cartes mises en avant */
+.showcase-section {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+/* Pour s'assurer que les cartes master et lieux ont la même hauteur */
+#selected-master .card-frame,
+#location-card .card-frame {
+    width: 300px;
+    min-width: 250px;
+    height: 450px;
+}
+
+/* Conteneur pour les cartes basiques en dessous */
+.basic-cards-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Amélioration de la grille de cartes basiques */
+.basic-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Responsive design pour les différentes tailles d'écran */
+@media (max-width: 992px) {
+    .featured-cards-row {
+        flex-wrap: wrap;
+    }
+    
+    .showcase-section {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+.basic-card.card-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.basic-card .card-image {
+    height: 160px;
+}
+
+.basic-card .card-name {
+    font-size: 14px;
+    padding: 8px;
+}
+
+/* Particle effects for deck items */
+.deck-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.deck-particle {
+    position: absolute;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255, 223, 150, 0.8) 0%, rgba(255, 223, 150, 0) 70%);
+    border-radius: 50%;
+    animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Hover effects for cards */
+.card-hover {
+    z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cards-showcase {
+        flex-direction: row;
+    }
+    
+    .showcase-section {
+        width: 100%;
+    }
+    
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}

@@ -1,4 +1,7 @@
 // Création des particules
+import './game/cards.js';
+import './game/collection.js';
+
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
     const particleCount = 30;
@@ -64,7 +67,15 @@ function setupModals() {
         });
     });
 }
+import { openCollection } from './game/collection.js';
 
+document.getElementById('collection-button').addEventListener('click', () => {
+    // Hide modal if using your existing modal system
+    document.getElementById('collection-modal').style.display = 'none';
+    
+    // Open collection interface
+    openCollection();
+});
 // Effets sonores pour les boutons
 function setupSoundEffects() {
     const buttons = document.querySelectorAll('.menu-button, .footer-button');

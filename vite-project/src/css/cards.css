@@ -1,0 +1,303 @@
+/* Styles améliorés pour les cartes */
+.card-frame {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-bottom: 20px;
+    height: 450px; /* Hauteur fixe pour une présentation uniforme */
+}
+.showcase-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#selected-master, #location-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#selected-master .card-frame, #location-card .card-frame {
+    width: 300px; /* Fixed width instead of relying on max-width */
+    min-width: 250px; /* Ensure minimum width */
+}
+.cards-showcase {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+/* Bordures personnalisées selon le type de carte */
+.master-card {
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+    border: 2px solid #ffcc00;
+}
+.card-frame {
+    /* Keep your existing styles but modify these: */
+    opacity: 1; /* Start visible instead of hidden */
+    transform: none; /* Don't start with transform */
+}
+
+/* Then apply the animation class separately */
+.card-frame.card-animate {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.card-frame.card-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.location-card {
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+    border: 2px solid #00ccff;
+}
+
+/* Ajustements pour les cartes basiques */
+.basic-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Augmentation de 140px à 200px */
+    gap: 20px; /* Augmentation de 15px à 20px pour un meilleur espacement */
+    width: 100%;
+}
+
+.basic-card {
+    background: linear-gradient(145deg, #3d2b00, #271a00);
+    border: 2px solid #a67c00;
+    border-radius: 10px; /* Augmentation pour plus de cohérence visuelle */
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Ombrage amélioré */
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    height: auto; /* Permettre une hauteur automatique basée sur le contenu */
+    min-height: 220px; /* Hauteur minimum pour assurer une bonne présentation */
+}
+
+.basic-card.card-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.basic-card .card-image {
+    height: 180px; /* Augmentation de 160px à 180px */
+}
+
+.basic-card .card-name {
+    font-size: 16px; /* Augmentation de 14px à 16px */
+    padding: 10px; /* Augmentation de 8px à 10px */
+}
+
+/* Ajustements pour assurer une présentation cohérente */
+@media (max-width: 992px) {
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .basic-card .card-image {
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .basic-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .basic-card .card-image {
+        height: 150px;
+    }
+    
+    .basic-card .card-name {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Ajustement pour assurer la compatibilité avec les styles existants */
+.card-frame.basic-card {
+    width: 100%;
+    max-width: 220px; /* Largeur maximale pour les cartes basiques */
+    margin: 0 auto;
+    height: 320px; /* Hauteur ajustée pour être proportionnelle */
+}
+
+/* S'assurer que les cartes basiques héritent des styles améliorés */
+.basic-card .card-info {
+    background: linear-gradient(to top, rgba(30, 20, 0, 0.9) 60%, rgba(30, 20, 0, 0.7) 80%, rgba(30, 20, 0, 0.3) 100%);
+}
+
+/* Image en plein écran */
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Effet de lueur sur l'image */
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 2;
+}
+
+/* En-tête de la carte */
+.card-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    z-index: 3;
+    text-align: center;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.master-card .card-title {
+    color: #ffcc00;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.location-card .card-title {
+    color: #00ccff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 204, 255, 0.5);
+}
+
+/* Info de la carte au bas */
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 60%, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 0.3) 100%);
+    padding: 15px 10px;
+    z-index: 3;
+}
+
+/* Zone d'effet de la carte */
+.card-effect {
+    padding: 8px;
+    margin-bottom: 15px;
+    min-height: 60px;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+}
+
+.location-effect {
+    border-left: 3px solid rgba(0, 204, 255, 0.5);
+    padding-left: 12px;
+}
+
+/* Stats de la carte */
+.card-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.attack-stat, .health-stat {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Nouvelles icônes stylisées */
+.attack-icon, .health-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.attack-icon {
+    background: radial-gradient(circle, rgba(255, 80, 80, 0.9) 40%, rgba(255, 0, 0, 0.5) 100%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    box-shadow: 0 0 5px rgba(255, 80, 80, 0.7);
+}
+
+.attack-icon::after {
+    content: "⚔";
+    font-size: 14px;
+    color: white;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}
+
+.health-icon {
+    background: radial-gradient(circle, rgba(80, 255, 80, 0.9) 40%, rgba(0, 180, 0, 0.5) 100%);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    box-shadow: 0 0 5px rgba(80, 255, 80, 0.7);
+}
+
+.health-icon::after {
+    content: "♥";
+    font-size: 14px;
+    color: white;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}
+
+.attack-value {
+    color: #ff6666;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 102, 102, 0.7);
+}
+
+.health-value {
+    color: #66ff66;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 1), 0 0 5px rgba(102, 255, 102, 0.7);
+}
+
+/* Animation pour faire apparaître les cartes */
+.card-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styles spécifiques pour les cartes de localisation */
+.location-card .card-info {
+    background: linear-gradient(to top, rgba(0, 40, 60, 0.9) 60%, rgba(0, 40, 60, 0.7) 80%, rgba(0, 40, 60, 0.3) 100%);
+}
+
+/* Styles spécifiques pour les cartes maîtresses */
+.master-card .card-info {
+    background: linear-gradient(to top, rgba(50, 30, 0, 0.9) 60%, rgba(50, 30, 0, 0.7) 80%, rgba(50, 30, 0, 0.3) 100%);
+}

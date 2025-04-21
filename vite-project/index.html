@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de Cartes - Menu Principal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/collection.css">
+    <link rel="stylesheet" href="./src/css/cards.css">
 </head>
 <body>
     <div class="particles" id="particles"></div>
     <div class="fullscreen-background">
       <div class="rotating-background"></div>
   </div>
-
+  <div id="main-content">
     <div class="logo">
         <h1>L'éveil des gardiens</h1>
     </div>
@@ -45,7 +47,6 @@
             <span class="close-button">&times;</span>
             <h2 class="modal-title">Collection</h2>
             <div class="modal-body">
-                <p>Votre collection de cartes s'affichera ici. Vous pourrez construire des decks et examiner vos cartes.</p>
             </div>
         </div>
     </div>
@@ -82,7 +83,7 @@
             </div>
         </div>
     </div>
-
-<script src="script.js"></script>
+</div>
+<script type="module" src="./src/script.js"></script>
 </body>
 </html>
